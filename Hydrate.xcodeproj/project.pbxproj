@@ -14,6 +14,7 @@
 		3F2E54582AE79A5600382F2C /* HydrateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E54572AE79A5600382F2C /* HydrateTests.swift */; };
 		3F2E54622AE79A5600382F2C /* HydrateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E54612AE79A5600382F2C /* HydrateUITests.swift */; };
 		3F2E54642AE79A5600382F2C /* HydrateUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E54632AE79A5600382F2C /* HydrateUITestsLaunchTests.swift */; };
+		3F2E54732AE79BA200382F2C /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E54722AE79BA200382F2C /* Misc.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		3F2E545D2AE79A5600382F2C /* HydrateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HydrateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F2E54612AE79A5600382F2C /* HydrateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrateUITests.swift; sourceTree = "<group>"; };
 		3F2E54632AE79A5600382F2C /* HydrateUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrateUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3F2E54722AE79BA200382F2C /* Misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,8 @@
 		3F2E543A2AE79A5400382F2C = {
 			isa = PBXGroup;
 			children = (
+				3F2E54712AE79B8800382F2C /* Helpers */,
+				3F2E54702AE79AB100382F2C /* Views */,
 				3F2E54452AE79A5400382F2C /* Hydrate */,
 				3F2E54562AE79A5600382F2C /* HydrateTests */,
 				3F2E54602AE79A5600382F2C /* HydrateUITests */,
@@ -125,6 +129,21 @@
 				3F2E54632AE79A5600382F2C /* HydrateUITestsLaunchTests.swift */,
 			);
 			path = HydrateUITests;
+			sourceTree = "<group>";
+		};
+		3F2E54702AE79AB100382F2C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3F2E54712AE79B8800382F2C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3F2E54722AE79BA200382F2C /* Misc.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F2E54732AE79BA200382F2C /* Misc.swift in Sources */,
 				3F2E54492AE79A5400382F2C /* ContentView.swift in Sources */,
 				3F2E54472AE79A5400382F2C /* HydrateApp.swift in Sources */,
 			);
