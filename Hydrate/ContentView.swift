@@ -14,6 +14,8 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
+            WaveView(heightFraction: $hydrationFraction, fillColor: .blue)
+                .ignoresSafeArea()
             Text(hydrationFraction.formatted(.percent))
                 .font(.largeTitle.bold())
             VStack {
