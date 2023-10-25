@@ -7,16 +7,50 @@
 
 import SwiftUI
 
+@Observable
+class WaterContainer {
+    
+    private(set) var currentCapacity: Double
+    let maxCapacity: Double
+    
+    init(currentCapacity: Double = 0.0, maxCapacity: Double) {
+        self.currentCapacity = currentCapacity
+        self.maxCapacity = maxCapacity
+    }
+    
+    var currentCapacityFraction: Double {
+        get { currentCapacity / maxCapacity }
+        set { }
+    }
+    
+    func addCapacity(_ serving: ServingSize) {
+        currentCapacity += serving.rawValue
+    }
+    
+    func addCapacity(_ quantity: Double) {
+        currentCapacity += quantity
+    }
+    
+    func reset() {
+        currentCapacity = 0.0
+    }
+
+}
+
+enum ServingSize: Double {
+    case cup = 250
+}
+
 struct ContentView: View {
     
-    @State private var hydrationFraction: Double = 0.0
-    private var hydrationFractionIncrement: Double = 0.1
+    @State private var waterContainer: WaterContainer = .init(maxCapacity: 2000)
+    @State private var servingSize: ServingSize = .cup
     
     var body: some View {
         ZStack {
-            WaveView(heightFraction: $hydrationFraction, fillColor: .blue)
+            WaveView(heightFraction: $waterContainer.currentCapacityFraction, fillColor: .blue)
                 .ignoresSafeArea()
-            Text(hydrationFraction.formatted(.percent))
+            Text(waterContainer.currentCapacityFraction.formatted(.percent))
                 .font(.largeTitle.bold())
             VStack {
                 Text(Date.now.formatted(date: .abbreviated, time: .omitted))
@@ -25,14 +59,14 @@ struct ContentView: View {
                 Spacer()
                 HStack(alignment: .bottom) {
                     Button {
-                        hydrationFraction = 0.0
+                        waterContainer.reset()
                     } label: {
                         Label("Rest", systemImage: "xmark")
                             .labelStyle(ExpandableButtonLabelStyle())
                     }
                     Spacer()
                     ExpandableButton {
-                        hydrationFraction += hydrationFractionIncrement
+                        waterContainer.addCapacity(.cup)
                     } label: {
                         Label("Drink", systemImage: "drop.fill")
                             .labelStyle(ExpandableButtonLabelStyle())
