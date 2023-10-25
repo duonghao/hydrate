@@ -17,6 +17,7 @@
 		3F2E54732AE79BA200382F2C /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E54722AE79BA200382F2C /* Misc.swift */; };
 		3F2E54752AE7A3B200382F2C /* Wave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E54742AE7A3B200382F2C /* Wave.swift */; };
 		3F2E54792AE8004400382F2C /* ExpandableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E54782AE8004400382F2C /* ExpandableButton.swift */; };
+		3F2E547B2AE8DD3F00382F2C /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E547A2AE8DD3F00382F2C /* ButtonStyles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		3F2E54722AE79BA200382F2C /* Misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		3F2E54742AE7A3B200382F2C /* Wave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wave.swift; sourceTree = "<group>"; };
 		3F2E54782AE8004400382F2C /* ExpandableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableButton.swift; sourceTree = "<group>"; };
+		3F2E547A2AE8DD3F00382F2C /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				3F2E54722AE79BA200382F2C /* Misc.swift */,
+				3F2E547A2AE8DD3F00382F2C /* ButtonStyles.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F2E54732AE79BA200382F2C /* Misc.swift in Sources */,
+				3F2E547B2AE8DD3F00382F2C /* ButtonStyles.swift in Sources */,
 				3F2E54492AE79A5400382F2C /* ContentView.swift in Sources */,
 				3F2E54472AE79A5400382F2C /* HydrateApp.swift in Sources */,
 				3F2E54752AE7A3B200382F2C /* Wave.swift in Sources */,

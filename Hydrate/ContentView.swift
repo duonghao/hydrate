@@ -23,7 +23,13 @@ struct ContentView: View {
                     .padding(.vertical)
                     .font(.callout)
                 Spacer()
-                HStack {
+                HStack(alignment: .bottom) {
+                    Button {
+                        hydrationFraction = 0.0
+                    } label: {
+                        Label("Rest", systemImage: "xmark")
+                            .labelStyle(ExpandableButtonLabelStyle())
+                    }
                     Spacer()
                     ExpandableButton {
                         hydrationFraction += hydrationFractionIncrement
@@ -47,12 +53,8 @@ struct ContentView: View {
                                 .labelStyle(ExpandableButtonLabelStyle())
                         }
                     }
-                    .frame(maxWidth: 54)
-                    .font(.title2)
-                    .background(.thickMaterial)
-                    .clipShape(.capsule)
-                    .shadow(radius: 5)
                 }
+                .buttonStyle(MainButtonStyle())
                 .padding(.horizontal)
             }
         }
