@@ -16,6 +16,7 @@
 		3F2E54642AE79A5600382F2C /* HydrateUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E54632AE79A5600382F2C /* HydrateUITestsLaunchTests.swift */; };
 		3F2E54732AE79BA200382F2C /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E54722AE79BA200382F2C /* Misc.swift */; };
 		3F2E54752AE7A3B200382F2C /* Wave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E54742AE7A3B200382F2C /* Wave.swift */; };
+		3F2E54792AE8004400382F2C /* ExpandableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E54782AE8004400382F2C /* ExpandableButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		3F2E54632AE79A5600382F2C /* HydrateUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrateUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3F2E54722AE79BA200382F2C /* Misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		3F2E54742AE7A3B200382F2C /* Wave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wave.swift; sourceTree = "<group>"; };
+		3F2E54782AE8004400382F2C /* ExpandableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				3F2E54742AE7A3B200382F2C /* Wave.swift */,
+				3F2E54782AE8004400382F2C /* ExpandableButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				3F2E54492AE79A5400382F2C /* ContentView.swift in Sources */,
 				3F2E54472AE79A5400382F2C /* HydrateApp.swift in Sources */,
 				3F2E54752AE7A3B200382F2C /* Wave.swift in Sources */,
+				3F2E54792AE8004400382F2C /* ExpandableButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

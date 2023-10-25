@@ -25,17 +25,33 @@ struct ContentView: View {
                 Spacer()
                 HStack {
                     Spacer()
-                    Button {
+                    ExpandableButton {
                         hydrationFraction += hydrationFractionIncrement
                     } label: {
                         Label("Drink", systemImage: "drop.fill")
-                            .font(.title2)
-                            .foregroundStyle(.white)
-                            .labelStyle(.iconOnly)
-                            .padding(16)
-                            .background(.blue)
-                            .clipShape(.capsule)
+                            .labelStyle(ExpandableButtonLabelStyle())
+                    } content: {
+                        // Schedule reminders
+                        Button {
+                        
+                        } label: {
+                            Label("Container", systemImage: "calendar.badge.clock")
+                                .labelStyle(ExpandableButtonLabelStyle())
+                        }
+                        
+                        // Select daily consumption and container size
+                        Button {
+                            
+                        } label: {
+                            Label("Container", systemImage: "waterbottle.fill")
+                                .labelStyle(ExpandableButtonLabelStyle())
+                        }
                     }
+                    .frame(maxWidth: 54)
+                    .font(.title2)
+                    .background(.thickMaterial)
+                    .clipShape(.capsule)
+                    .shadow(radius: 5)
                 }
                 .padding(.horizontal)
             }
