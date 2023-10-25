@@ -7,91 +7,64 @@
 
 import SwiftUI
 
-@Observable
-class WaterContainer {
-    
-    private(set) var currentCapacity: Double
-    let maxCapacity: Double
-    
-    init(currentCapacity: Double = 0.0, maxCapacity: Double) {
-        self.currentCapacity = currentCapacity
-        self.maxCapacity = maxCapacity
-    }
-    
-    var currentCapacityFraction: Double {
-        get { currentCapacity / maxCapacity }
-        set { }
-    }
-    
-    func addCapacity(_ serving: ServingSize) {
-        currentCapacity += serving.rawValue
-    }
-    
-    func addCapacity(_ quantity: Double) {
-        currentCapacity += quantity
-    }
-    
-    func reset() {
-        currentCapacity = 0.0
-    }
 
-}
-
-enum ServingSize: Double {
-    case cup = 250
-}
 
 struct ContentView: View {
     
     @State private var waterContainer: WaterContainer = .init(maxCapacity: 2000)
-    @State private var servingSize: ServingSize = .cup
+    @State private var showingContainerSheet = false
     
     var body: some View {
-        ZStack {
-            WaveView(heightFraction: $waterContainer.currentCapacityFraction, fillColor: .blue)
-                .ignoresSafeArea()
-            Text(waterContainer.currentCapacityFraction.formatted(.percent))
-                .font(.largeTitle.bold())
-            VStack {
-                Text(Date.now.formatted(date: .abbreviated, time: .omitted))
-                    .padding(.vertical)
-                    .font(.callout)
-                Spacer()
-                HStack(alignment: .bottom) {
-                    Button {
-                        waterContainer.reset()
-                    } label: {
-                        Label("Rest", systemImage: "xmark")
-                            .labelStyle(ExpandableButtonLabelStyle())
-                    }
+        NavigationStack {
+            ZStack {
+                WaveView(heightFraction: $waterContainer.currentCapacityFraction, fillColor: .blue)
+                    .ignoresSafeArea()
+                Text(waterContainer.currentCapacityFraction.formatted(.percent))
+                    .font(.largeTitle.bold())
+                VStack {
+                    Text(Date.now.formatted(date: .abbreviated, time: .omitted))
+                        .padding(.vertical)
+                        .font(.callout)
                     Spacer()
-                    ExpandableButton {
-                        waterContainer.addCapacity(.cup)
-                    } label: {
-                        Label("Drink", systemImage: "drop.fill")
-                            .labelStyle(ExpandableButtonLabelStyle())
-                    } content: {
-                        // Schedule reminders
+                    HStack(alignment: .bottom) {
                         Button {
-                        
+                            waterContainer.reset()
                         } label: {
-                            Label("Container", systemImage: "calendar.badge.clock")
+                            Label("Rest", systemImage: "xmark")
                                 .labelStyle(ExpandableButtonLabelStyle())
                         }
-                        
-                        // Select daily consumption and container size
-                        Button {
-                            
+                        Spacer()
+                        ExpandableButton {
+                            waterContainer.addCapacity()
                         } label: {
-                            Label("Container", systemImage: "waterbottle.fill")
+                            Label("Drink", systemImage: "drop.fill")
                                 .labelStyle(ExpandableButtonLabelStyle())
+                        } content: {
+                            // Schedule reminders
+                            Button {
+                                
+                            } label: {
+                                Label("Schedule", systemImage: "calendar.badge.clock")
+                                    .labelStyle(ExpandableButtonLabelStyle())
+                            }
+                            
+                            // Select daily consumption and container size
+                            Button {
+                                showingContainerSheet = true
+                            } label: {
+                                Label("Container", systemImage: "waterbottle.fill")
+                                    .labelStyle(ExpandableButtonLabelStyle())
+                            }
                         }
                     }
+                    .buttonStyle(MainButtonStyle())
+                    .padding(.horizontal)
                 }
-                .buttonStyle(MainButtonStyle())
-                .padding(.horizontal)
             }
         }
+        .sheet(isPresented: $showingContainerSheet, content: {
+            ContainerChangeSheet(waterContainer: waterContainer)
+        })
     }
 }
 

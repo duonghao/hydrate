@@ -87,8 +87,10 @@ struct WaveView: View {
         Wave(heightFraction: heightFraction, strength: strength, frequency: frequency, phase: phase.rawValue)
             .fill(fillColor)
             .onAppear {
-                withAnimation(.linear(duration: 0.7).repeatForever(autoreverses: false)) {
-                    self.phase = .end
+                DispatchQueue.main.async {
+                    withAnimation(.linear(duration: 0.7).repeatForever(autoreverses: false)) {
+                        self.phase = .end
+                    }
                 }
             }
             .onChange(of: heightFraction, { oldValue, newValue in
