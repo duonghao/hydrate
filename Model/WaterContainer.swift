@@ -32,6 +32,15 @@ class WaterContainer {
         set { }
     }
     
+    var remainingCapacityFraction: Double {
+        get { Double(remainingCapacity) / Double(maxCapacity) }
+        set { }
+    }
+
+    var remainingCapacity: Double {
+        Double(maxCapacity - currentCapacity)
+    }
+    
     func addCapacity() {
         currentCapacity += servingSize
     }

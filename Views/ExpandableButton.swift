@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-struct ExpandableButtonLabelStyle: LabelStyle {
-    func makeBody(configuration: Configuration) -> some View {
-          Label(configuration)
-                .labelStyle(.iconOnly)
-                .padding()
-      }
-}
-
 struct ExpandableButton<Label: View, Content: View>: View {
     
     enum Orientation {
@@ -55,7 +47,7 @@ struct ExpandableButton<Label: View, Content: View>: View {
         }
         
         Button {
-            
+            // Action taken care of by tap gesture
         } label: {
             label
         }

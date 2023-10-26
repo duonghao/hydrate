@@ -18,5 +18,13 @@ struct MainButtonStyle: ButtonStyle {
             .clipShape(.capsule)
             .shadow(radius: 5)
     }
-    
 }
+
+struct ExpandableButtonLabelStyle: LabelStyle {
+    func makeBody(configuration: Configuration) -> some View {
+          Label(configuration)
+                .labelStyle(.iconOnly)
+                .padding()
+      }
+}
+
