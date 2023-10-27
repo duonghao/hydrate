@@ -11,14 +11,14 @@ import SwiftUI
 
 struct ContentView: View {
     
-    enum StatusIndicator: Int, CaseIterable {
+    enum StatusIndicatorType: Int, CaseIterable {
         case percentConsumed
         case totalConsumed
         case percentRemaining
         case totalRemaining
         
         mutating func goNext() -> Void {
-            if (self.rawValue == StatusIndicator.allCases.count - 1) {
+            if (self.rawValue == StatusIndicatorType.allCases.count - 1) {
                 self = Self(rawValue: 0)!
             } else {
                 self = Self(rawValue: self.rawValue + 1)!
@@ -27,25 +27,29 @@ struct ContentView: View {
     }
     
     @State private var waterContainer: WaterContainer = .init(maxCapacity: 2000)
-    @State private var statusIndicator: StatusIndicator = .percentConsumed
+    @State private var statusIndicatorType: StatusIndicatorType = .percentConsumed
     @State private var showingContainerSheet = false
+    @State private var showingNotificationSheet = false
     
     var body: some View {
         NavigationStack {
             ZStack {
                 WaveView(heightFraction: $waterContainer.currentCapacityFraction, fillColor: .blue)
                     .ignoresSafeArea()
-                consumptionStatusIndicator
-                menu
+                statusIndicator
+                navMenu
             }
         }
         .sheet(isPresented: $showingContainerSheet, content: {
             ContainerChangeSheet(waterContainer: waterContainer)
         })
+        .sheet(isPresented: $showingNotificationSheet, content: {
+            NotificationChangeSheet()
+        })
     }
     
     @ViewBuilder
-    private var consumptionStatusIndicator: some View {
+    private var statusIndicator: some View {
         VStack {
             Text("Consumed")
                 .font(.caption)
@@ -60,7 +64,7 @@ struct ContentView: View {
         .shadow(radius: 5)
         .overlay {
             Group {
-                switch(statusIndicator) {
+                switch(statusIndicatorType) {
                 case .percentConsumed:
                     VStack {
                         Text("Consumed")
@@ -90,7 +94,7 @@ struct ContentView: View {
             .font(.largeTitle.bold())
             .onTapGesture {
                 withAnimation() {
-                    statusIndicator.goNext()
+                    statusIndicatorType.goNext()
                 }
             }
         }
@@ -104,7 +108,7 @@ struct ContentView: View {
         }
     }
     
-    private var menu: some View {
+    private var navMenu: some View {
         VStack {
             Text(Date.now.formatted(date: .abbreviated, time: .omitted))
                 .padding(.vertical)
@@ -136,11 +140,11 @@ struct ContentView: View {
             Label("Drink", systemImage: "drop.fill")
                 .labelStyle(ExpandableButtonLabelStyle())
         } content: {
-            // Schedule reminders
+            // Schedule notifications
             Button {
-                
+                showingNotificationSheet = true
             } label: {
-                Label("Schedule", systemImage: "calendar.badge.clock")
+                Label("Notifications", systemImage: "calendar.badge.clock")
                     .labelStyle(ExpandableButtonLabelStyle())
             }
             

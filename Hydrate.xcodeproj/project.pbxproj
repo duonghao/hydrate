@@ -20,6 +20,12 @@
 		3F2E547B2AE8DD3F00382F2C /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E547A2AE8DD3F00382F2C /* Styles.swift */; };
 		3F2E547D2AE8FA8700382F2C /* ContainerChangeSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E547C2AE8FA8700382F2C /* ContainerChangeSheet.swift */; };
 		3F2E547F2AE8FA9B00382F2C /* WaterContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E547E2AE8FA9B00382F2C /* WaterContainer.swift */; };
+		3F2E54822AEA63DC00382F2C /* NotificationChangeSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E54812AEA63DC00382F2C /* NotificationChangeSheet.swift */; };
+		3F2E54842AEA6FA500382F2C /* MultiComponentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E54832AEA6FA500382F2C /* MultiComponentPicker.swift */; };
+		3F2E54862AEBB70000382F2C /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E54852AEBB70000382F2C /* NotificationManager.swift */; };
+		3F2E54892AEBC42C00382F2C /* DebouncedOnChange in Frameworks */ = {isa = PBXBuildFile; productRef = 3F2E54882AEBC42C00382F2C /* DebouncedOnChange */; };
+		3F2E548B2AEBF30500382F2C /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E548A2AEBF30500382F2C /* ViewModifiers.swift */; };
+		3F2E548D2AEBFBBE00382F2C /* Representable-Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E548C2AEBFBBE00382F2C /* Representable-Exts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +62,11 @@
 		3F2E547A2AE8DD3F00382F2C /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		3F2E547C2AE8FA8700382F2C /* ContainerChangeSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerChangeSheet.swift; sourceTree = "<group>"; };
 		3F2E547E2AE8FA9B00382F2C /* WaterContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterContainer.swift; sourceTree = "<group>"; };
+		3F2E54812AEA63DC00382F2C /* NotificationChangeSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationChangeSheet.swift; sourceTree = "<group>"; };
+		3F2E54832AEA6FA500382F2C /* MultiComponentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiComponentPicker.swift; sourceTree = "<group>"; };
+		3F2E54852AEBB70000382F2C /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		3F2E548A2AEBF30500382F2C /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
+		3F2E548C2AEBFBBE00382F2C /* Representable-Exts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Representable-Exts.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F2E54892AEBC42C00382F2C /* DebouncedOnChange in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +160,8 @@
 				3F2E54742AE7A3B200382F2C /* Wave.swift */,
 				3F2E54782AE8004400382F2C /* ExpandableButton.swift */,
 				3F2E547C2AE8FA8700382F2C /* ContainerChangeSheet.swift */,
+				3F2E54812AEA63DC00382F2C /* NotificationChangeSheet.swift */,
+				3F2E54832AEA6FA500382F2C /* MultiComponentPicker.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -157,6 +171,9 @@
 			children = (
 				3F2E54722AE79BA200382F2C /* Misc.swift */,
 				3F2E547A2AE8DD3F00382F2C /* Styles.swift */,
+				3F2E54852AEBB70000382F2C /* NotificationManager.swift */,
+				3F2E548A2AEBF30500382F2C /* ViewModifiers.swift */,
+				3F2E548C2AEBFBBE00382F2C /* Representable-Exts.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -185,6 +202,9 @@
 			dependencies = (
 			);
 			name = Hydrate;
+			packageProductDependencies = (
+				3F2E54882AEBC42C00382F2C /* DebouncedOnChange */,
+			);
 			productName = Hydrate;
 			productReference = 3F2E54432AE79A5400382F2C /* Hydrate.app */;
 			productType = "com.apple.product-type.application";
@@ -257,6 +277,9 @@
 				Base,
 			);
 			mainGroup = 3F2E543A2AE79A5400382F2C;
+			packageReferences = (
+				3F2E54872AEBC42C00382F2C /* XCRemoteSwiftPackageReference "DebouncedOnChange" */,
+			);
 			productRefGroup = 3F2E54442AE79A5400382F2C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -299,12 +322,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F2E54822AEA63DC00382F2C /* NotificationChangeSheet.swift in Sources */,
 				3F2E54732AE79BA200382F2C /* Misc.swift in Sources */,
 				3F2E547D2AE8FA8700382F2C /* ContainerChangeSheet.swift in Sources */,
+				3F2E548B2AEBF30500382F2C /* ViewModifiers.swift in Sources */,
+				3F2E54842AEA6FA500382F2C /* MultiComponentPicker.swift in Sources */,
+				3F2E54862AEBB70000382F2C /* NotificationManager.swift in Sources */,
 				3F2E547B2AE8DD3F00382F2C /* Styles.swift in Sources */,
 				3F2E54492AE79A5400382F2C /* ContentView.swift in Sources */,
 				3F2E54472AE79A5400382F2C /* HydrateApp.swift in Sources */,
 				3F2E547F2AE8FA9B00382F2C /* WaterContainer.swift in Sources */,
+				3F2E548D2AEBFBBE00382F2C /* Representable-Exts.swift in Sources */,
 				3F2E54752AE7A3B200382F2C /* Wave.swift in Sources */,
 				3F2E54792AE8004400382F2C /* ExpandableButton.swift in Sources */,
 			);
@@ -636,6 +664,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3F2E54872AEBC42C00382F2C /* XCRemoteSwiftPackageReference "DebouncedOnChange" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Tunous/DebouncedOnChange.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3F2E54882AEBC42C00382F2C /* DebouncedOnChange */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F2E54872AEBC42C00382F2C /* XCRemoteSwiftPackageReference "DebouncedOnChange" */;
+			productName = DebouncedOnChange;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3F2E543B2AE79A5400382F2C /* Project object */;
 }

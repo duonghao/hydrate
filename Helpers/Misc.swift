@@ -23,3 +23,16 @@ struct IntDoubleBinding {
         })
     }
 }
+
+func dates(from start: Date,
+           to end: Date,
+           interval: DateComponents) -> [Date] {
+    var result = [Date]()
+    var working = start
+    repeat {
+        result.append(working)
+        guard let new = Calendar.current.date(byAdding: interval, to: working) else { return result }
+        working = new
+    } while working <= end
+    return result
+}
