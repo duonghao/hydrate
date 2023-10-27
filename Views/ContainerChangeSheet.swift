@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContainerChangeSheet: View {
     
+    @Environment(\.dismiss) private var dismiss
     @Bindable var waterContainer: WaterContainer
     @State private var isCustom: Bool = false
     
@@ -18,6 +19,7 @@ struct ContainerChangeSheet: View {
                 containerSection
                 servingSection
             }
+            .modifier(SheetToolbarViewModifier(title: "Sizing", dismiss: dismiss))
         }
     }
     
