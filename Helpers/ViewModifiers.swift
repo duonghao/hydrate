@@ -15,6 +15,9 @@ struct SheetToolbarViewModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
+            .safeAreaInset(edge: .top) {
+              Divider()
+            }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Text(title)
