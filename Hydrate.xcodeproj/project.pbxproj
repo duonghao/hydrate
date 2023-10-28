@@ -27,6 +27,10 @@
 		3F2E548B2AEBF30500382F2C /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E548A2AEBF30500382F2C /* ViewModifiers.swift */; };
 		3F2E548D2AEBFBBE00382F2C /* Representable-Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E548C2AEBFBBE00382F2C /* Representable-Exts.swift */; };
 		3F2E548F2AEC060600382F2C /* HistorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E548E2AEC060600382F2C /* HistorySheet.swift */; };
+		3F2E54912AECD98200382F2C /* PreviewSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E54902AECD98200382F2C /* PreviewSampleData.swift */; };
+		3F2E54932AECE49D00382F2C /* Calendar-Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E54922AECE49D00382F2C /* Calendar-Exts.swift */; };
+		3F2E54952AECF85F00382F2C /* DateScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E54942AECF85F00382F2C /* DateScale.swift */; };
+		3F2E54972AECF88200382F2C /* ConsumptionChartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E54962AECF88200382F2C /* ConsumptionChartItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +73,10 @@
 		3F2E548A2AEBF30500382F2C /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		3F2E548C2AEBFBBE00382F2C /* Representable-Exts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Representable-Exts.swift"; sourceTree = "<group>"; };
 		3F2E548E2AEC060600382F2C /* HistorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySheet.swift; sourceTree = "<group>"; };
+		3F2E54902AECD98200382F2C /* PreviewSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSampleData.swift; sourceTree = "<group>"; };
+		3F2E54922AECE49D00382F2C /* Calendar-Exts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar-Exts.swift"; sourceTree = "<group>"; };
+		3F2E54942AECF85F00382F2C /* DateScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateScale.swift; sourceTree = "<group>"; };
+		3F2E54962AECF88200382F2C /* ConsumptionChartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionChartItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +185,9 @@
 				3F2E54852AEBB70000382F2C /* NotificationManager.swift */,
 				3F2E548A2AEBF30500382F2C /* ViewModifiers.swift */,
 				3F2E548C2AEBFBBE00382F2C /* Representable-Exts.swift */,
+				3F2E54902AECD98200382F2C /* PreviewSampleData.swift */,
+				3F2E54922AECE49D00382F2C /* Calendar-Exts.swift */,
+				3F2E54942AECF85F00382F2C /* DateScale.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -185,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				3F2E547E2AE8FA9B00382F2C /* WaterContainer.swift */,
+				3F2E54962AECF88200382F2C /* ConsumptionChartItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -326,16 +338,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F2E54822AEA63DC00382F2C /* NotificationChangeSheet.swift in Sources */,
+				3F2E54972AECF88200382F2C /* ConsumptionChartItem.swift in Sources */,
 				3F2E54732AE79BA200382F2C /* Misc.swift in Sources */,
 				3F2E547D2AE8FA8700382F2C /* ContainerChangeSheet.swift in Sources */,
 				3F2E548B2AEBF30500382F2C /* ViewModifiers.swift in Sources */,
 				3F2E54842AEA6FA500382F2C /* MultiComponentPicker.swift in Sources */,
+				3F2E54952AECF85F00382F2C /* DateScale.swift in Sources */,
 				3F2E54862AEBB70000382F2C /* NotificationManager.swift in Sources */,
 				3F2E547B2AE8DD3F00382F2C /* Styles.swift in Sources */,
 				3F2E54492AE79A5400382F2C /* ContentView.swift in Sources */,
 				3F2E54472AE79A5400382F2C /* HydrateApp.swift in Sources */,
+				3F2E54932AECE49D00382F2C /* Calendar-Exts.swift in Sources */,
 				3F2E547F2AE8FA9B00382F2C /* WaterContainer.swift in Sources */,
 				3F2E548F2AEC060600382F2C /* HistorySheet.swift in Sources */,
+				3F2E54912AECD98200382F2C /* PreviewSampleData.swift in Sources */,
 				3F2E548D2AEBFBBE00382F2C /* Representable-Exts.swift in Sources */,
 				3F2E54752AE7A3B200382F2C /* Wave.swift in Sources */,
 				3F2E54792AE8004400382F2C /* ExpandableButton.swift in Sources */,

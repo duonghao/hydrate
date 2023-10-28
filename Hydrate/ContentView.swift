@@ -6,8 +6,7 @@
 //
 
 import SwiftUI
-
-
+import SwiftData
 
 struct ContentView: View {
     
@@ -26,7 +25,23 @@ struct ContentView: View {
         }
     }
     
-    @State private var waterContainer: WaterContainer = .init(maxCapacity: 2000)
+    @Environment(\.modelContext) private var modelContext
+    @Query private var waterContainers: [WaterContainer]
+    var currentWaterContainer: WaterContainer {
+        get {
+            let calendar = Calendar.current
+            let currentContainer = waterContainers.filter({ calendar.isDateInToday($0.timeStamp) }).first
+            
+            if let currentContainer = currentContainer {
+                return currentContainer
+            } else {
+                let newWaterContainer = WaterContainer(maxCapacity: 2000)
+                modelContext.insert(newWaterContainer)
+                return newWaterContainer
+            }
+        }
+    }
+
     @State private var statusIndicatorType: StatusIndicatorType = .percentConsumed
     @State private var showingHistorySheet = false
     @State private var showingContainerSheet = false
@@ -35,7 +50,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                WaveView(heightFraction: $waterContainer.currentCapacityFraction, fillColor: .blue)
+                WaveView(heightFraction: currentWaterContainer.currentCapacityFraction, fillColor: .blue)
                     .ignoresSafeArea()
                 statusIndicator
                 navMenu
@@ -45,7 +60,7 @@ struct ContentView: View {
             HistorySheet()
         })
         .sheet(isPresented: $showingContainerSheet, content: {
-            ContainerChangeSheet(waterContainer: waterContainer)
+            ContainerChangeSheet(waterContainer: currentWaterContainer)
         })
         .sheet(isPresented: $showingNotificationSheet, content: {
             NotificationChangeSheet()
@@ -73,25 +88,25 @@ struct ContentView: View {
                     VStack {
                         Text("Consumed")
                             .font(.caption)
-                        Text(waterContainer.currentCapacityFraction.formatted(.percent))
+                        Text(currentWaterContainer.currentCapacityFraction.formatted(.percent))
                     }
                 case .totalConsumed:
                     VStack {
                         Text("Consumed")
                             .font(.caption)
-                        Text("\(waterContainer.currentCapacity.formatted(.number)) mL")
+                        Text("\(currentWaterContainer.currentCapacity.formatted(.number)) mL")
                     }
                 case .percentRemaining:
                     VStack {
                         Text("Remaining")
                             .font(.caption)
-                        Text(waterContainer.remainingCapacityFraction.formatted(.percent))
+                        Text(currentWaterContainer.remainingCapacityFraction.formatted(.percent))
                     }
                 case .totalRemaining:
                     VStack {
                         Text("Remaining")
                             .font(.caption)
-                        Text("\(waterContainer.remainingCapacity.formatted(.number)) mL")
+                        Text("\(currentWaterContainer.remainingCapacity.formatted(.number)) mL")
                     }
                 }
             }
@@ -130,7 +145,7 @@ struct ContentView: View {
     
     private var resetButton: some View {
         Button {
-            waterContainer.reset()
+            currentWaterContainer.reset()
         } label: {
             Label("Rest", systemImage: "xmark")
                 .labelStyle(ExpandableButtonLabelStyle())
@@ -139,7 +154,7 @@ struct ContentView: View {
     
     private var navMenuButtons: some View {
         ExpandableButton {
-            waterContainer.addCapacity()
+            currentWaterContainer.addCapacity()
         } label: {
             Label("Drink", systemImage: "drop.fill")
                 .labelStyle(ExpandableButtonLabelStyle())
@@ -173,4 +188,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .modelContainer(previewContainer)
 }

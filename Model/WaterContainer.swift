@@ -6,9 +6,24 @@
 //
 
 import Foundation
+import SwiftData
 
-@Observable
-class WaterContainer {
+@Model
+final class WaterContainer {
+    
+    static var previewData: [WaterContainer] = [
+        .init(timeStamp: Date.now - 3 * 86400, currentCapacity: 800, maxCapacity: 2000),
+        .init(timeStamp: Date.now - 2 * 86400, currentCapacity: 800, maxCapacity: 2000),
+        .init(timeStamp: Date.now - 86400, currentCapacity: 800, maxCapacity: 2000),
+        .init(timeStamp: Date.now, currentCapacity: 800, maxCapacity: 2000),
+        .init(timeStamp: Date.now + 2 * 86400, currentCapacity: 1200, maxCapacity: 2000),
+        .init(timeStamp: Date.now + 3 * 86400, currentCapacity: 600, maxCapacity: 2000),
+        .init(timeStamp: Date.now + 4 * 86400, currentCapacity: 2000, maxCapacity: 2000),
+        .init(timeStamp: Date.now + 5 * 86400, currentCapacity: 1500, maxCapacity: 2000),
+        .init(timeStamp: Date.now + 6 * 86400, currentCapacity: 1500, maxCapacity: 2000),
+        .init(timeStamp: Date.now + 7 * 86400, currentCapacity: 1500, maxCapacity: 2000),
+        .init(timeStamp: Date.now + 8 * 86400, currentCapacity: 1500, maxCapacity: 2000)
+    ]
     
     static let absoluteMaxCapacity = 8000
     
@@ -18,10 +33,12 @@ class WaterContainer {
     }
     
     private(set) var currentCapacity: Int
+    var timeStamp: Date
     var maxCapacity: Int
     var servingSize: Int
     
-    init(currentCapacity: Int = 0, maxCapacity: Int, servingSizing: Int = StandardisedServingSize.cup.rawValue) {
+    init(timeStamp: Date = Date.now, currentCapacity: Int = 0, maxCapacity: Int, servingSizing: Int = StandardisedServingSize.cup.rawValue) {
+        self.timeStamp = timeStamp
         self.currentCapacity = currentCapacity
         self.maxCapacity = maxCapacity
         self.servingSize = servingSizing
@@ -62,3 +79,4 @@ class WaterContainer {
     }
 
 }
+

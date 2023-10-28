@@ -78,7 +78,7 @@ struct WaveView: View {
     }
     
     @State private var phase: PhaseState = .start
-    @Binding var heightFraction: Double
+    var heightFraction: Double
     var strength: Double = 10
     var frequency: Double = 25
     var fillColor: Color
@@ -106,5 +106,5 @@ struct WaveView: View {
 }
 
 #Preview {
-    WaveView(heightFraction: .constant(0.3), fillColor: .blue)
+    WaveView(heightFraction: 0.3, fillColor: .blue)
 }
