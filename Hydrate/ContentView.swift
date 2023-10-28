@@ -28,6 +28,7 @@ struct ContentView: View {
     
     @State private var waterContainer: WaterContainer = .init(maxCapacity: 2000)
     @State private var statusIndicatorType: StatusIndicatorType = .percentConsumed
+    @State private var showingHistorySheet = false
     @State private var showingContainerSheet = false
     @State private var showingNotificationSheet = false
     
@@ -40,6 +41,9 @@ struct ContentView: View {
                 navMenu
             }
         }
+        .sheet(isPresented: $showingHistorySheet, content: {
+            HistorySheet()
+        })
         .sheet(isPresented: $showingContainerSheet, content: {
             ContainerChangeSheet(waterContainer: waterContainer)
         })
@@ -117,7 +121,7 @@ struct ContentView: View {
             HStack(alignment: .bottom) {
                 resetButton
                 Spacer()
-                navMenuButton
+                navMenuButtons
             }
             .buttonStyle(MainButtonStyle())
             .padding(.horizontal)
@@ -133,13 +137,21 @@ struct ContentView: View {
         }
     }
     
-    private var navMenuButton: some View {
+    private var navMenuButtons: some View {
         ExpandableButton {
             waterContainer.addCapacity()
         } label: {
             Label("Drink", systemImage: "drop.fill")
                 .labelStyle(ExpandableButtonLabelStyle())
         } content: {
+            // Show history
+            Button {
+                showingHistorySheet = true
+            } label: {
+                Label("History", systemImage: "chart.bar.fill")
+                    .labelStyle(ExpandableButtonLabelStyle())
+            }
+            
             // Schedule notifications
             Button {
                 showingNotificationSheet = true
