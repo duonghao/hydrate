@@ -9,24 +9,25 @@ import Foundation
 import SwiftUI
 
 struct MainButtonStyle: ButtonStyle {
+    
+    var buttonSize: CGFloat? = nil
 
     func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .frame(maxWidth: 54)
-            .font(.title2)
-            .background(.thickMaterial)
-            .clipShape(.capsule)
-            .shadow(radius: 5)
+        Group {
+            if let buttonSize = buttonSize {
+                configuration.label
+                    .frame(width: buttonSize, height: buttonSize)
+                    
+            } else {
+                configuration.label
+            }
+        }
+        .padding()
+        .labelStyle(.iconOnly)
+        .font(.title2)
+        .foregroundStyle(.black)
+        .background(.thickMaterial)
+        .clipShape(.capsule)
+        .shadow(radius: 5)
     }
 }
-
-struct ExpandableButtonLabelStyle: LabelStyle {
-    func makeBody(configuration: Configuration) -> some View {
-          Label(configuration)
-                .labelStyle(.iconOnly)
-                .padding()
-      }
-}
-
-
-

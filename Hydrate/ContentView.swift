@@ -42,6 +42,7 @@ struct ContentView: View {
         }
     }
 
+    @ScaledMetric var buttonSize: CGFloat = 28
     @State private var statusIndicatorType: StatusIndicatorType = .percentConsumed
     @State private var showingHistorySheet = false
     @State private var showingContainerSheet = false
@@ -136,10 +137,21 @@ struct ContentView: View {
             HStack(alignment: .bottom) {
                 resetButton
                 Spacer()
+                hydrateButton
+                Spacer()
                 navMenuButtons
             }
-            .buttonStyle(MainButtonStyle())
+            .buttonStyle(MainButtonStyle(buttonSize: buttonSize))
+            
             .padding(.horizontal)
+        }
+    }
+    
+    private var hydrateButton: some View {
+        Button {
+            currentWaterContainer.addCapacity()
+        } label: {
+            Label("Hydrate", systemImage: "drop.fill")
         }
     }
     
@@ -147,24 +159,21 @@ struct ContentView: View {
         Button {
             currentWaterContainer.reset()
         } label: {
-            Label("Rest", systemImage: "xmark")
-                .labelStyle(ExpandableButtonLabelStyle())
+            Label("Reset", systemImage: "xmark")
         }
     }
     
     private var navMenuButtons: some View {
         ExpandableButton {
-            currentWaterContainer.addCapacity()
+            
         } label: {
-            Label("Drink", systemImage: "drop.fill")
-                .labelStyle(ExpandableButtonLabelStyle())
+        
         } content: {
             // Show history
             Button {
                 showingHistorySheet = true
             } label: {
                 Label("History", systemImage: "chart.bar.fill")
-                    .labelStyle(ExpandableButtonLabelStyle())
             }
             
             // Schedule notifications
@@ -172,7 +181,6 @@ struct ContentView: View {
                 showingNotificationSheet = true
             } label: {
                 Label("Notifications", systemImage: "calendar.badge.clock")
-                    .labelStyle(ExpandableButtonLabelStyle())
             }
             
             // Select daily consumption and container size
@@ -180,9 +188,9 @@ struct ContentView: View {
                 showingContainerSheet = true
             } label: {
                 Label("Container", systemImage: "waterbottle.fill")
-                    .labelStyle(ExpandableButtonLabelStyle())
             }
         }
+        .expandableButtonStyle(ChevronExpandableButtonStyle())
     }
 }
 

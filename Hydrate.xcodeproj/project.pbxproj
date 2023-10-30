@@ -31,6 +31,8 @@
 		3F2E54932AECE49D00382F2C /* Calendar-Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E54922AECE49D00382F2C /* Calendar-Exts.swift */; };
 		3F2E54952AECF85F00382F2C /* DateScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E54942AECF85F00382F2C /* DateScale.swift */; };
 		3F2E54972AECF88200382F2C /* ConsumptionChartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E54962AECF88200382F2C /* ConsumptionChartItem.swift */; };
+		3F2E54992AEE872600382F2C /* ExpandableButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E54982AEE872600382F2C /* ExpandableButtonStyle.swift */; };
+		3F2E549C2AEEA2F500382F2C /* LayoutStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E549B2AEEA2F500382F2C /* LayoutStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		3F2E54922AECE49D00382F2C /* Calendar-Exts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar-Exts.swift"; sourceTree = "<group>"; };
 		3F2E54942AECF85F00382F2C /* DateScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateScale.swift; sourceTree = "<group>"; };
 		3F2E54962AECF88200382F2C /* ConsumptionChartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionChartItem.swift; sourceTree = "<group>"; };
+		3F2E54982AEE872600382F2C /* ExpandableButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableButtonStyle.swift; sourceTree = "<group>"; };
+		3F2E549B2AEEA2F500382F2C /* LayoutStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,7 @@
 		3F2E543A2AE79A5400382F2C = {
 			isa = PBXGroup;
 			children = (
+				3F2E549A2AEEA29700382F2C /* Components */,
 				3F2E54802AE8FAA000382F2C /* Model */,
 				3F2E54712AE79B8800382F2C /* Helpers */,
 				3F2E54702AE79AB100382F2C /* Views */,
@@ -168,7 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				3F2E54742AE7A3B200382F2C /* Wave.swift */,
-				3F2E54782AE8004400382F2C /* ExpandableButton.swift */,
 				3F2E547C2AE8FA8700382F2C /* ContainerChangeSheet.swift */,
 				3F2E54812AEA63DC00382F2C /* NotificationChangeSheet.swift */,
 				3F2E54832AEA6FA500382F2C /* MultiComponentPicker.swift */,
@@ -199,6 +203,24 @@
 				3F2E54962AECF88200382F2C /* ConsumptionChartItem.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3F2E549A2AEEA29700382F2C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3F2E549D2AEFF4F300382F2C /* ExpandableButton */,
+				3F2E549B2AEEA2F500382F2C /* LayoutStack.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		3F2E549D2AEFF4F300382F2C /* ExpandableButton */ = {
+			isa = PBXGroup;
+			children = (
+				3F2E54982AEE872600382F2C /* ExpandableButtonStyle.swift */,
+				3F2E54782AE8004400382F2C /* ExpandableButton.swift */,
+			);
+			path = ExpandableButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,6 +366,7 @@
 				3F2E548B2AEBF30500382F2C /* ViewModifiers.swift in Sources */,
 				3F2E54842AEA6FA500382F2C /* MultiComponentPicker.swift in Sources */,
 				3F2E54952AECF85F00382F2C /* DateScale.swift in Sources */,
+				3F2E54992AEE872600382F2C /* ExpandableButtonStyle.swift in Sources */,
 				3F2E54862AEBB70000382F2C /* NotificationManager.swift in Sources */,
 				3F2E547B2AE8DD3F00382F2C /* Styles.swift in Sources */,
 				3F2E54492AE79A5400382F2C /* ContentView.swift in Sources */,
@@ -352,6 +375,7 @@
 				3F2E547F2AE8FA9B00382F2C /* WaterContainer.swift in Sources */,
 				3F2E548F2AEC060600382F2C /* HistorySheet.swift in Sources */,
 				3F2E54912AECD98200382F2C /* PreviewSampleData.swift in Sources */,
+				3F2E549C2AEEA2F500382F2C /* LayoutStack.swift in Sources */,
 				3F2E548D2AEBFBBE00382F2C /* Representable-Exts.swift in Sources */,
 				3F2E54752AE7A3B200382F2C /* Wave.swift in Sources */,
 				3F2E54792AE8004400382F2C /* ExpandableButton.swift in Sources */,

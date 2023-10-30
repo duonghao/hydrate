@@ -20,8 +20,6 @@ struct MultiPicker: View  {
         self.data = data
         self._selection = selection
         self.showLabel = showLabel
-        
-        UIPickerView.appearance().backgroundColor = .clear
     }
 
     var body: some View {
