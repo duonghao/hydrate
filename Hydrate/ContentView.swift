@@ -42,7 +42,8 @@ struct ContentView: View {
         }
     }
 
-    @ScaledMetric var buttonSize: CGFloat = 28
+    @ScaledMetric var mainButtonSize: CGFloat = 42
+    @ScaledMetric var secondaryButtonSize: CGFloat = 28
     @State private var statusIndicatorType: StatusIndicatorType = .percentConsumed
     @State private var showingHistorySheet = false
     @State private var showingContainerSheet = false
@@ -136,13 +137,14 @@ struct ContentView: View {
             Spacer()
             HStack(alignment: .bottom) {
                 resetButton
+                    .buttonStyle(SecondaryButtonStyle(buttonSize: secondaryButtonSize))
                 Spacer()
                 hydrateButton
+                    .buttonStyle(MainButtonStyle(buttonSize: mainButtonSize))
                 Spacer()
                 navMenuButtons
+                    .buttonStyle(SecondaryButtonStyle(buttonSize: secondaryButtonSize))
             }
-            .buttonStyle(MainButtonStyle(buttonSize: buttonSize))
-            
             .padding(.horizontal)
         }
     }
