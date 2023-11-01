@@ -32,12 +32,12 @@ struct Provider: TimelineProvider {
             return nil
         }
         
-        let descriptor = FetchDescriptor<WaterContainer>()
+        let descriptor = FetchDescriptor<WaterContainer>(predicate: WaterContainer.todaysWaterContainerPredicate())
         guard let results = try? modelContainer.mainContext.fetch(descriptor) else {
             return nil
         }
        
-        return results.first
+        return results.first ?? .init(maxCapacity: 2000)
     }
 }
 

@@ -81,6 +81,16 @@ final class WaterContainer {
     func setServingSize(_ servingSize: Int) {
         self.servingSize = servingSize
     }
+    
+    static func todaysWaterContainerPredicate() -> Predicate<WaterContainer> {
+        let calendar = Calendar.autoupdatingCurrent
+        let start = calendar.startOfDay(for: Date.now)
+        let end = calendar.date(byAdding: .init(day: 1), to: start) ?? start
+        
+        return #Predicate<WaterContainer> { waterContainer in
+            start <= waterContainer.timeStamp &&  waterContainer.timeStamp < end
+        }
+    }
 
 }
 
