@@ -52,7 +52,8 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                WaveView(heightFraction: currentWaterContainer.currentCapacityFraction, fillColor: .blue)
+                WaveView(heightFraction: currentWaterContainer.currentCapacityFraction)
+                    .foregroundStyle(.blue.gradient)
                     .ignoresSafeArea()
                 statusIndicator
                 navMenu

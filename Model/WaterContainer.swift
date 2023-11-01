@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftData
+import WidgetKit
 
 @Model
 final class WaterContainer {
@@ -60,14 +61,17 @@ final class WaterContainer {
     
     func addCapacity() {
         currentCapacity += servingSize
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     func addCapacity(_ quantity: Int) {
         currentCapacity += quantity
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     func reset() {
         currentCapacity = 0
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     func setServingSize(standardisedServingSize: StandardisedServingSize) {

@@ -10,6 +10,11 @@ import SwiftUI
 extension Calendar {
     private var currentDate: Date { return Date() }
     
+    var tomorrowsDate: Date {
+        let today = startOfDay(for: Date.now)
+        return date(byAdding: .day, value: 1, to: today)!
+    }
+    
     func isDateInThisWeek(_ date: Date) -> Bool {
         return isDate(date, equalTo: currentDate, toGranularity: .weekOfYear)
     }

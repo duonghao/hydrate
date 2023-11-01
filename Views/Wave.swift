@@ -69,10 +69,10 @@ struct WaveView: View {
         
         mutating func toggle() {
             switch self {
-                case .start:
-                    self = .end
-                case .end:
-                    self = .start
+            case .start:
+                self = .end
+            case .end:
+                self = .start
             }
         }
     }
@@ -81,11 +81,10 @@ struct WaveView: View {
     var heightFraction: Double
     var strength: Double = 10
     var frequency: Double = 25
-    var fillColor: Color
     
     var body: some View {
         Wave(heightFraction: heightFraction, strength: strength, frequency: frequency, phase: phase.rawValue)
-            .fill(fillColor)
+            .animation(.linear(duration: 1), value: heightFraction)
             .onAppear {
                 DispatchQueue.main.async {
                     withAnimation(.linear(duration: 0.7).repeatForever(autoreverses: false)) {
@@ -101,10 +100,10 @@ struct WaveView: View {
                     }
                 }
             })
-            .animation(.linear(duration: 1), value: heightFraction)
     }
 }
 
 #Preview {
-    WaveView(heightFraction: 0.3, fillColor: .blue)
+    WaveView(heightFraction: 0.3)
+        .foregroundStyle(.blue.gradient)
 }
